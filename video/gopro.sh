@@ -1,13 +1,12 @@
 #!/bin/bash
 
-CONVS=""
-for FILE in $(ls -1 "$1/"*.MP4); do
-  FL=$(basename $FILE .MP4)
-  echo "$FILE -> $TARGET"
-  CONVS="$CONVS|$FILE"
+TMP=$(mktemp -p $1)
+for FILE in $(ls -1 $1/*.MP4); do
+  FL=$(basename $FILE)
+  echo "$FILE"
+  echo "file $FL" >> $TMP
 done
 
-echo ${CONVS%?}
-
-ffmpeg -i "concat:/dev/null$CONVS" -c copy $1/output.mp4
+cd $1
+ffmpeg -f concat -i $TMP -c copy $1/output.mp4
 
