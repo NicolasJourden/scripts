@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# apt-get install ufraw-batch exiv2 imagemagick
+
 OPTIONS="-auto-level -auto-gamma -verbose -quality 92"
 
 for FL in $(ls -1 "$1/"*.CR2); do
