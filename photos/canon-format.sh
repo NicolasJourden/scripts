@@ -82,7 +82,7 @@ for FL in $(ls -1 "$1/"*.JPG); do
 
   echo "Focal/lens: $FOCAL for $LENS"
   echo "convert \"$FL\" $OPTIONS -distort barrel \"$BAREL\" \"$DIR/${FILE}_$FOCAL.jpg\""
-  convert "$FL" $OPTIONS -distort barrel "$BAREL" "$DIR/${FILE}_$FOCAL.jpg"
+  convert "$FL" $OPTIONS -distort barrel "$BAREL" "$DIR/${FILE}_$FOCAL.JPG.jpeg"
   #$CMR
 
 done
