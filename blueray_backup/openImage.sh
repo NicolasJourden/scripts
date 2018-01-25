@@ -4,7 +4,8 @@ TARGET="cryptBR"
 FILE="image.iso"
 LOOP=7
 
-losetup /dev/loop$LOOP $FILE
-cryptsetup -r luksOpen /dev/loop$LOOP $TARGET
+# Mount the image on the drive:
+cryptsetup -r luksOpen /dev/sr0 $TARGET
 mkdir -p /mnt/$TARGET
-mount -t ext4 -o ro /dev/mapper/volume1 /mnt/$TARGET
+mount -t ext4 -o ro /dev/mapper/$TARGET /mnt/$TARGET
+

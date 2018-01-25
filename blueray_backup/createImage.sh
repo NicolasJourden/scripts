@@ -19,4 +19,5 @@ mkfs.ext4 /dev/mapper/$TARGET
 
 # Mount:
 mkdir -p /mnt/$TARGET
-mount -t ext4 /dev/mapper/volume1 /mnt/$TARGET
+mount -t ext4 /dev/mapper/$TARGET /mnt/$TARGET
+
