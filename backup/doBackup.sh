@@ -4,7 +4,8 @@ LOGFILE=$(mktemp)
 echo "Log to $LOGFILE ... "
 
 rsync				\
-	-crat			\
+	-rat			\
+	--checksum		\
 	--exclude ".recycle"	\
 	--exclude "*tmp*"	\
 	--exclude "*~"		\
@@ -14,5 +15,5 @@ rsync				\
 	/sbackup/ | tee "$LOGFILE"
 echo "Rsync done ... "
 
-cat "$LOGFILE" | mail -a "$LOGFILE" -s "sbackup - 2T" nicolas.jourden@laposte.net
+cat "$LOGFILE" | mail -a "$LOGFILE" -s "sbackup - 4T" nicolas.jourden@laposte.net
 echo "Email sent."
