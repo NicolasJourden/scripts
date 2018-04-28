@@ -9,4 +9,4 @@ done
 
 cd $1
 ffmpeg -f concat -i $TMP -c copy $1/output.mp4
-
+rm -v $TMP
